@@ -20,6 +20,16 @@ body {
     font-size: 15px;
   }
 
+  .site-header {
+    background: rgba(255, 255, 255, 0.6);
+    opacity: 0.9;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
   ul.recent-posts {
     list-style-type: none;
     margin: 0;
@@ -34,7 +44,8 @@ body {
 
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
+    grid-template-columns: auto auto;
+    opacity: .99;
     gap: 20px;
     padding: 20px;
   }
