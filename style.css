@@ -8,57 +8,106 @@ body {
   }
   .navbar {
     display: flex;
-    background-color: none;
-    justify-content: right;
+    justify-content: flex-end;
+    width: fit-content;
+    margin: 20px 20px 0 auto;
+    padding: 10px 16px;
+    background-image: url("images/navbar-bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
   }
-
+  
   .navbar div {
-    background-color: #f1f1f1;
-    opacity: 0.8;
-    margin: 10px;
+    margin: 0 10px;
     padding: 10px;
-    font-size: 15px;
+    font-size: 15px; 
+    background: none;
   }
-
+  .nav-icon {
+    display: block;
+    width: 65px;   /* change this to whatever looks best */
+    height: auto;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.9));
+}
   .site-header {
-    background: rgba(255, 255, 255, 0.6);
-    opacity: 0.9;
-    padding: 20px;
-    margin: 20px;
+    background: none;
+    position: relative;
+    z-index: 10;
+    opacity: 0.8;
+    padding: 0px;
+    margin: 0 0 -100px 0px;
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
-  ul.recent-posts {
-    list-style-type: none;
-    margin: 0;
-    margin-bottom: 0;
-    padding: 10px;
-    overflow: hidden;
-  }
-
-  ul.recent-posts li {
-    margin-bottom: 10px;
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    opacity: .99;
-    gap: 20px;
-    padding: 20px;
-  }
-  .grid-container > * {
-    background: rgba(255, 255, 255, 0.6);
-    padding: 1.5rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
- 
-  img {
+  .header-image {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  opacity: .99;
+  gap: 20px;
+  padding: 20px;
+}
+.grid-container > * {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.recent-posts-image {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 0;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+}
+ul.recent-posts {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 0;
+  padding: 10px;
+  overflow: hidden;
+}
+
+ul.recent-posts li {
+  margin-bottom: 10px;
+}
+.listening-to-image {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+}
+.reading-image {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+}
+.watching-image {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+}
+  
+
+  
