@@ -75,14 +75,14 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  filter: drop-shadow(0 10px 15px rgb(255, 60, 164));
+  filter: drop-shadow(0 10px 15px rgb(242, 254, 0));
 }
 .recent-posts-image {
     display: block;
     width: 100%;
     max-width: 200px;
     margin: 0;
-    filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
+    filter: drop-shadow(0 10px 15px rgb(242, 254, 0));
 }
 ul.recent-posts {
   list-style-type: none;
@@ -100,21 +100,21 @@ ul.recent-posts li {
   width: 100%;
   max-width: 200px;
   margin: 0;
-  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
+  filter: drop-shadow(0 10px 15px rgb(242, 254, 0));
 }
 .reading-image {
   display: block;
   width: 100%;
   max-width: 200px;
   margin: 0;
-  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
+  filter: drop-shadow(0 10px 15px rgb(242, 254, 0));
 }
 .watching-image {
   display: block;
   width: 100%;
   max-width: 200px;
   margin: 0;
-  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
+  filter: drop-shadow(0 10px 15px rgb(242, 254, 0));
 }
 .right-column {
   font-family: Optima, sans-serif;
@@ -136,7 +136,7 @@ ul.recent-posts li {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
+  filter: drop-shadow(0 10px 15px rgb(242, 254, 0));
 }
 .book-row {
   display: flex;
@@ -168,4 +168,12 @@ ul.recent-posts li {
   background-repeat: repeat-y;
   background-size: 100% auto;
   border-radius: 8px;
+}
+.left-column a {
+  color: #ba398f;
+  text-decoration: none;
+}
+
+.left-column a:hover {
+  color: #00dd00;
 }
