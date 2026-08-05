@@ -1,6 +1,8 @@
 body {
     background-image: url(images/Matrix.jpg);
-    background-color: #ee7b7b;
+    background-color: #000000;
+    font-family: "Optima", monospace;
+    line-height: 1.4;
 }
 
 .center {
@@ -26,7 +28,7 @@ body {
   }
   .nav-icon {
     display: block;
-    width: 65px;   /* change this to whatever looks best */
+    width: 90px;   /* change this to whatever looks best */
     height: auto;
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.9));
 }
@@ -34,7 +36,7 @@ body {
     background: none;
     position: relative;
     z-index: 10;
-    opacity: 0.8;
+    opacity: 0.85;
     padding: 0px;
     margin: 0 0 -100px 0px;
     text-align: center;
@@ -63,18 +65,24 @@ body {
   border-radius: 8px;
   box-sizing: border-box;
 }
-
+.h2 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: large;
+  color: #ffffff;
+}
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  filter: drop-shadow(0 10px 15px rgb(255, 60, 164));
 }
 .recent-posts-image {
     display: block;
     width: 100%;
     max-width: 200px;
     margin: 0;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+    filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
 }
 ul.recent-posts {
   list-style-type: none;
@@ -92,22 +100,72 @@ ul.recent-posts li {
   width: 100%;
   max-width: 200px;
   margin: 0;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
 }
 .reading-image {
   display: block;
   width: 100%;
   max-width: 200px;
   margin: 0;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
 }
 .watching-image {
   display: block;
   width: 100%;
   max-width: 200px;
   margin: 0;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
 }
-  
-
-  
+.right-column {
+  font-family: Optima, sans-serif;
+  font-size: large;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+.left-column {
+  font-family: Optima, sans-serif;
+  font-size: large;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+.iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 10px 15px rgba(255, 60, 164, 0.704));
+}
+.book-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;   /* space between the books */
+  margin-top: 10px;
+}
+.book-cover {
+  width: 120px;
+  height: auto;
+}
+.left-column {
+  font-family: Optima, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  padding: 1.5rem;
+  background-color: transparent;
+  background-image: url("images/sidebar-bg.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  border-radius: 8px;
+}
+.right-column {
+  font-family: Optima, sans-serif;
+  font-size: large;
+  padding: 1.5rem;
+  background: transparent;
+  background-image: url("images/mainbar-bg.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  border-radius: 8px;
+}
