@@ -41,6 +41,9 @@ body {
     height: auto;
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.9));
 }
+.music-nav-icon {
+  width: 55px;
+}
   .mode-switcher {
     position: relative;
     width: 280px;
@@ -368,6 +371,9 @@ img {
   margin-left: auto;
   margin-right: auto;
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));;
+}
+.bandcamp-embed {
+  filter: none;
 }
 .book-row {
   display: flex;
