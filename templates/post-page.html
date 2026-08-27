@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="author" content="Tony Kevin">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{postTitle}} | Tony Kevin</title>
+    <meta name="description" content="{{postDescription}}">
+    <link href="{{root}}style/style.css" rel="stylesheet" type="text/css">
+    <script src="{{root}}theme.js" defer></script>
+  </head>
+  <body id="top">
+    {{topbar}}
+    {{header}}
+
+    <div class="grid-container">
+      <div class="bunny-reveal">
+        <button class="bunny-trigger" type="button" aria-label="Reveal ignorance">
+          <img src="{{root}}images/bunny.png" alt="">
+        </button>
+        <button class="ignorance-reveal" type="button" aria-label="Return page to normal">
+          <img src="{{root}}images/ignorance.png" alt="Ignorance is bliss, pay">
+        </button>
+      </div>
+
+      {{sidebar}}
+
+      <section class="right-column">
+        <article class="blog-post">
+          <h1>{{postTitle}}</h1>
+          <h2 class="post-date"><time datetime="{{postDate}}">{{postDateDisplay}}</time></h2>
+          {{postContent}}
+          <hr class="post-divider">
+          <div class="post-tags" aria-label="Post tags">
+            {{postTags}}
+          </div>
+        </article>
+      </section>
+    </div>
+
+    {{footer}}
+  </body>
+</html>
