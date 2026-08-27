@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posts</title>
+    <meta name="author" content="Tony Kevin">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BlogTony</title>
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+      <div class="topbar">
+        <div class="mode-switcher">
+          <img src="images/mode-switcher.png" alt="" class="mode-switcher-image">
+          <img src="images/mode-switcher-collapsed.png" alt="" class="mode-switcher-collapsed-image">
+          <button class="mode-switcher-toggle" type="button" aria-expanded="false" aria-label="Show mode options"></button>
+          <button class="mode-switcher-close" type="button" aria-label="Hide mode options">&times;</button>
+          <button class="mode-pill mode-pill-neon" type="button" data-theme="neon" aria-label="Switch to Neon Mode" aria-pressed="false">Neon</button>
+          <button class="mode-pill mode-pill-soft" type="button" data-theme="soft" aria-label="Switch to Soft Mode" aria-pressed="false">Soft</button>
+        </div>
+        <div class="navbar">
+          <div><a href="index.html"><img src="images/home.png" data-neon-src="images/home.png" data-soft-src="images/home-soft.png" alt="Home" class="nav-icon"></a></div>
+          <div><a href="about.html"><img src="images/about.png" data-neon-src="images/about.png" data-soft-src="images/about-soft.png" alt="About" class="nav-icon"></a></div>
+          <div><a href="posts.html"><img src="images/posts.png" data-neon-src="images/posts.png" data-soft-src="images/posts-soft.png" alt="Posts" class="nav-icon"></a></div>
+          <div><a href="store.html"><img src="images/store.png" data-neon-src="images/store.png" data-soft-src="images/store-soft.png" alt="Store" class="nav-icon"></a></div>
+          <div><a href="mailto:atkevin@gmail.com"><img src="images/contact.png" data-neon-src="images/contact.png" data-soft-src="images/contact-soft.png" alt="Contact" class="nav-icon"></a></div>
+        </div>
+      </div>
+      <header class="site-header">
+          <button class="header-toggle" type="button" aria-expanded="true" aria-label="Collapse header">
+            <img src="images/header1.png" data-neon-src="images/header1.png" data-soft-src="images/header1-soft.png" alt="Tony Kevin" class="header-image">
+          </button>
+      </header>
+  
+      <div class="grid-container">
+        <div class="bunny-reveal">
+          <button class="bunny-trigger" type="button" aria-label="Reveal ignorance">
+            <img src="images/bunny.png" alt="">
+          </button>
+          <button class="ignorance-reveal" type="button" aria-label="Return page to normal">
+            <img src="images/ignorance.png" alt="Ignorance is bliss, pay">
+          </button>
+        </div>
+        <section class="left-column">
+      <img src="images/recentposts.png" data-neon-src="images/recentposts.png" data-soft-src="images/recentposts-soft.png" alt="Recent Posts" class="recent-posts-image">
+      
+      <div class="recent-posts sidebar-float">
+        <a href="posts/hasthiseverhappenedtoyou.html">          
+          Has This Ever Happened to You?          
+          <img class="sidebar-float" src="images/hasthiseverhappenedtoyou.png" alt="Has This Ever Happened to You?" width="100" height="100">          
+        </a>     
+      </div>
+<br>
+      <img src="images/listeningto.png" data-neon-src="images/listeningto.png" data-soft-src="images/listeningto-soft.png" alt="Listening To" class="listening-to-image">
+      <iframe class="iframe sidebar-float" height="450" width="100" title="Media player" src="https://embed.music.apple.com/us/album/riot-deluxe/607340168" id="embedPlayer" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="border: 0px; border-radius: 12px; width: 100%; height: 200px; max-width: 200px;"></iframe>
+<br><br>
+      <img src="images/reading.png" data-neon-src="images/reading.png" data-soft-src="images/reading-soft.png" alt="Reading" class="reading-image">
+
+      <div class="book-row sidebar-float">
+        <img src="images/johndiesattheend.jpg"
+             alt="John Dies at the End - Jason Pargin"
+             class="book-cover">
+</div>
+<br><br>
+<div class="watching-section">
+      <img src="images/watching.png" data-neon-src="images/watching.png" data-soft-src="images/watching-soft.png" alt="Watching" class="watching-image">
+      <img src="images/bettercallsaul.jpg" alt="Better Call Saul" class="sidebar-float" style="width:100%;max-width:120px"></div>
+    </section>
+<section class="right-column">
+  <br><br>
+          <div id="container">
+            </div>
+            <div id="content">    
+            <h1>Posts</h1>    
+            <div id="postlistdiv"></div>
+            </div> <!-- end of div id="content" -->
+            </div> <!-- end of div id="container" -->
+            
+          <!-- Here's the link to our JavaScript! -->
+          <script src="./script.js"></script>
+</section>
+</div>
+
+<footer class="site-footer">
+  <a href="#top" class="back-to-top-link">
+    <strong>Back to Top</strong>
+  </a>
+  <br>
+  <a href="mailto:atkevin@gmail.com">Contact</a>
+  |
+  <a href="https://www.tiktok.com/@therealtonykevin">TikTok</a>
+  |
+  <a href="https://www.instagram.com/tonykevinjr/">Instagram</a>
+  |
+  <a href="https://www.neocities.org">Neocities</a>
+  <br>
+  2026 &copy; <button class="bunny-toggle" type="button" aria-pressed="false" aria-label="Reveal bunny">Tony Kevin</button>. All rights reserved, ya dingus.
+</footer>
+
+
+  </body>
+</html>
