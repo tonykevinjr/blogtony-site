@@ -207,6 +207,7 @@ body {
   gap: 20px;
   padding: 20px;
   position: relative;
+  perspective: 1600px;
   transition: transform 400ms ease, column-gap 2600ms ease-in-out;
 }
 .grid-container > * {
@@ -221,6 +222,121 @@ body {
   position: relative;
   z-index: 1;
 }
+.grid-container > .sidebar-flip {
+  position: relative;
+  z-index: 1;
+  grid-column: 1;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  transform-style: preserve-3d;
+  transition: transform 1600ms ease-in-out;
+}
+.sidebar-front,
+.sidebar-front *,
+.sidebar-front::before,
+.sidebar-front::after,
+.sidebar-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.sidebar-front {
+  position: relative;
+  z-index: 1;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+}
+.sidebar-back {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: visible;
+  background-image: url("../images/sidebarbehind.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+}
+.sidebar-toggle {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.sidebar-toggle .watching-image {
+  width: 100%;
+}
+.sidebar-toggle:focus-visible,
+.trinity-trigger:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+.trinity-reveal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 560px;
+  max-width: none;
+  transform: translate(-50%, -50%);
+}
+.trinity-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.trinity-trigger img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.75));
+}
+.trinity-message {
+  position: absolute;
+  top: -100px;
+  left: -80px;
+  z-index: 1;
+  display: block;
+  width: 230px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  transform: rotate(30deg);
+  transition: opacity 900ms ease;
+}
+ .trinity-message img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+body:not(.soft-mode).sidebar-flipped .sidebar-flip {
+  z-index: 2;
+  transform: rotateY(180deg);
+}
+body:not(.soft-mode).sidebar-flipped .sidebar-front iframe {
+  pointer-events: none;
+}
+body:not(.soft-mode).trinity-message-revealed .trinity-message {
+  opacity: 1;
+  pointer-events: auto;
+}
 .grid-container > .bunny-reveal {
   position: absolute;
   top: 1000px;
@@ -233,11 +349,11 @@ body {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
   filter: drop-shadow(0 12px 12px rgba(0, 0, 0, 0.7));
   transform: translateX(-50%);
-  transition: left 2600ms ease-in-out, opacity 700ms ease 200ms;
+  transition: left 2600ms ease-in-out;
 }
 .bunny-trigger,
 .ignorance-reveal {
@@ -280,10 +396,102 @@ body:not(.soft-mode).bunny-revealed .grid-container {
 }
 body:not(.soft-mode).bunny-revealed .bunny-reveal {
   left: calc(50% - 200px);
-  opacity: 1;
   pointer-events: auto;
 }
 body:not(.soft-mode).ignorance-revealed .ignorance-reveal {
+  opacity: 1;
+  pointer-events: auto;
+}
+.grid-container > .matrix-reveal {
+  --matrix-message-bottom: calc(70% - 100px);
+  --matrix-message-left: 455px;
+  position: absolute;
+  top: 55px;
+  left: calc(50% + 80px);
+  z-index: 0;
+  width: 484px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  opacity: 1;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-20px);
+  transition: transform 1200ms ease;
+}
+.matrix-trigger,
+.matrix-message {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.matrix-trigger {
+  display: block;
+  width: 100%;
+}
+.matrix-trigger img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.matrix-message {
+  position: absolute;
+  bottom: var(--matrix-message-bottom);
+  left: var(--matrix-message-left);
+  z-index: 2;
+  width: 330px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 900ms ease;
+}
+.matrix-message img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.matrix-final {
+  position: absolute;
+  bottom: calc(var(--matrix-message-bottom) - 160px);
+  left: calc(var(--matrix-message-left) + 90px);
+  z-index: 3;
+  display: block;
+  width: 330px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 900ms ease;
+}
+.matrix-final img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.matrix-trigger:focus-visible,
+.matrix-message:focus-visible,
+.matrix-final:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+body:not(.soft-mode).matrix-revealed .matrix-reveal {
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.grid-container > .right-column {
+  transition: transform 2600ms ease-in-out;
+}
+body:not(.soft-mode).matrix-revealed .right-column {
+  transform: translateY(400px);
+}
+body:not(.soft-mode).matrix-message-revealed .matrix-message {
+  opacity: 1;
+  pointer-events: auto;
+}
+body:not(.soft-mode).matrix-final-revealed .matrix-final {
   opacity: 1;
   pointer-events: auto;
 }
@@ -335,6 +543,23 @@ img {
   max-width: 200px;
   margin: 0;
   filter: none;
+}
+.matrix-toggle {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.matrix-toggle:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+.matrix-toggle:disabled {
+  cursor: default;
 }
 .reading-image {
   display: block;
