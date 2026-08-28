@@ -81,6 +81,18 @@ function formatTags(tags, archiveUrl) {
     .join("\n            ");
 }
 
+function formatArchiveTags(tags, archiveUrl) {
+  return tags
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean)
+    .map((tag) => {
+      const tagUrl = `${archiveUrl}?tag=${encodeURIComponent(tag)}`;
+      return `<a class="post-tag" href="${tagUrl}">${escapeHtml(tag)}</a>`;
+    })
+    .join(", ");
+}
+
 function tagNames(tags) {
   return tags
     .split(",")
@@ -95,10 +107,10 @@ function imagePath(post, root) {
 }
 
 function recentPostsHtml(posts, root, postUrl) {
-  return posts.slice(0, 3).map((post) => {
+  return posts.slice(0, 1).map((post) => {
     const thumbnail = imagePath(post, root);
     const imageHtml = thumbnail
-      ? `\n      <img class="sidebar-float" src="${thumbnail}" alt="${escapeHtml(post.metadata.title)}" width="100" height="100">`
+      ? `\n      <img class="recent-post-thumbnail sidebar-float" src="${thumbnail}" alt="${escapeHtml(post.metadata.title)}" width="100" height="100">`
       : "";
 
     return `<a href="${postUrl(post)}">${escapeHtml(post.metadata.title)}${imageHtml}</a>`;
@@ -144,9 +156,9 @@ function buildArchivePage(posts, options) {
   const postArchive = [...groups.entries()].map(([monthYear, monthPosts]) => {
     const items = monthPosts.map((post) => `
         <li data-tags="${escapeHtml(tagNames(post.metadata.tags))}">
-          <a href="${options.postUrl(post)}">${escapeHtml(post.metadata.title)}</a>
-          <time datetime="${post.metadata.date}">${formatDate(post.metadata.date)}</time>
-          <div class="post-tags">${formatTags(post.metadata.tags, options.archiveUrl)}</div>
+          <a href="${options.postUrl(post)}">${escapeHtml(post.metadata.title)}</a> -
+          <time datetime="${post.metadata.date}">${formatDate(post.metadata.date)}</time> -
+          <span class="archive-tags">Tags: ${formatArchiveTags(post.metadata.tags, options.archiveUrl)}</span>
         </li>`).join("");
 
     return `<section class="archive-month">

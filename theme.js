@@ -13,12 +13,15 @@
   const sidebarToggles = document.querySelectorAll(".sidebar-toggle");
   const trinityTriggers = document.querySelectorAll(".trinity-trigger");
   const trinityMessages = document.querySelectorAll(".trinity-message");
+  const anxietyArrowToggles = document.querySelectorAll(".anxiety-arrow-toggle");
+  const anxietyArrowReveals = document.querySelectorAll(".anxiety-arrow-reveal");
   const themeImages = document.querySelectorAll("[data-neon-src][data-soft-src]");
   const returnDuration = 2600;
   const sidebarFlipDuration = 1600;
   let bunnyReturnTimer;
   let matrixReturnTimer;
   let sidebarReturnTimer;
+  const anxietyArrowTimers = new WeakMap();
 
   function updateEasterEggAvailability() {
     const isSoft = document.body.classList.contains("soft-mode");
@@ -235,5 +238,32 @@
 
   trinityMessages.forEach((button) => {
     button.addEventListener("click", () => setSidebarFlipped(false));
+  });
+
+  anxietyArrowToggles.forEach((button) => {
+    button.addEventListener("click", () => {
+      const scene = button.closest(".anxiety-arrow-scene");
+      if (!scene) return;
+
+      clearTimeout(anxietyArrowTimers.get(scene));
+      scene.classList.remove("is-anxiety-arrow-blinking");
+      scene.classList.add("is-anxiety-arrow-visible");
+      button.setAttribute("aria-expanded", "true");
+
+      anxietyArrowTimers.set(scene, setTimeout(() => {
+        scene.classList.add("is-anxiety-arrow-blinking");
+      }, 2000));
+    });
+  });
+
+  anxietyArrowReveals.forEach((button) => {
+    button.addEventListener("click", () => {
+      const scene = button.closest(".anxiety-arrow-scene");
+      if (!scene) return;
+
+      clearTimeout(anxietyArrowTimers.get(scene));
+      scene.classList.remove("is-anxiety-arrow-visible", "is-anxiety-arrow-blinking");
+      scene.querySelector(".anxiety-arrow-toggle")?.setAttribute("aria-expanded", "false");
+    });
   });
 })();
