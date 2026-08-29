@@ -16,6 +16,7 @@
   const anxietyArrowToggles = document.querySelectorAll(".anxiety-arrow-toggle");
   const anxietyArrowReveals = document.querySelectorAll(".anxiety-arrow-reveal");
   const themeImages = document.querySelectorAll("[data-neon-src][data-soft-src]");
+  const mobileHeaderQuery = window.matchMedia("(max-width: 760px)");
   const returnDuration = 2600;
   const sidebarFlipDuration = 1600;
   let bunnyReturnTimer;
@@ -160,10 +161,38 @@
   });
 
   headerToggle?.addEventListener("click", () => {
+    if (mobileHeaderQuery.matches) {
+      document.body.classList.remove("header-collapsed");
+      const isRevealed = document.body.classList.toggle("mobile-disclaimer-revealed");
+      headerToggle.setAttribute("aria-expanded", String(isRevealed));
+      headerToggle.setAttribute("aria-label", isRevealed ? "Hide mobile header note" : "Show mobile header note");
+      return;
+    }
+
+    document.body.classList.remove("mobile-disclaimer-revealed");
     const isCollapsed = document.body.classList.toggle("header-collapsed");
     headerToggle.setAttribute("aria-expanded", String(!isCollapsed));
     headerToggle.setAttribute("aria-label", isCollapsed ? "Expand header" : "Collapse header");
   });
+
+  function syncHeaderToggleToViewport() {
+    if (!headerToggle) return;
+
+    if (mobileHeaderQuery.matches) {
+      document.body.classList.remove("header-collapsed");
+      const isRevealed = document.body.classList.contains("mobile-disclaimer-revealed");
+      headerToggle.setAttribute("aria-expanded", String(isRevealed));
+      headerToggle.setAttribute("aria-label", isRevealed ? "Hide mobile header note" : "Show mobile header note");
+    } else {
+      document.body.classList.remove("mobile-disclaimer-revealed");
+      const isCollapsed = document.body.classList.contains("header-collapsed");
+      headerToggle.setAttribute("aria-expanded", String(!isCollapsed));
+      headerToggle.setAttribute("aria-label", isCollapsed ? "Expand header" : "Collapse header");
+    }
+  }
+
+  syncHeaderToggleToViewport();
+  mobileHeaderQuery.addEventListener("change", syncHeaderToggleToViewport);
 
   bunnyToggles.forEach((button) => {
     button.addEventListener("click", () => {
