@@ -905,25 +905,29 @@ body.header-collapsed .site-footer {
   }
 
   .navbar {
-    gap: 2px 4px;
-    padding: 8px;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: fit-content;
+    max-width: 100%;
+    padding: 10px 16px;
     background-size: 100% 100%;
   }
 
   .navbar div {
-    flex: 0 1 calc(33.333% - 4px);
+    flex: 1 1 0;
+    min-width: 0;
     margin: 0;
-    padding: 6px 3px;
+    padding: 8px 4px;
   }
 
   .nav-icon {
-    width: min(76px, 100%);
-    max-height: 34px;
+    width: min(152px, 100%);
+    max-height: 68px;
     object-fit: contain;
   }
 
   .music-nav-icon {
-    width: min(48px, 100%);
+    width: min(96px, 100%);
   }
 
   .site-header {
@@ -1050,10 +1054,6 @@ body.header-collapsed .site-footer {
 }
 
 @media (max-width: 380px) {
-  .navbar div {
-    flex-basis: calc(50% - 4px);
-  }
-
   .grid-container {
     padding-inline: 8px;
   }
