@@ -9,6 +9,8 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="theme.js" defer></script>
     <script src="scripts/archive-filter.js" defer></script>
+    <script src="scripts/comments.js" defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onCommentsTurnstileLoad&amp;render=explicit" defer></script>
   </head>
   <body id="top">
     <div class="topbar">
@@ -110,27 +112,340 @@
 
       <section class="right-column">
         <h1>Posts</h1>
+        <div class="archive-view-toggle" role="group" aria-label="Choose how posts are displayed">
+          <button type="button" data-archive-view="list" aria-pressed="true">List view</button>
+          <button type="button" data-archive-view="feed" aria-pressed="false">Feed view</button>
+        </div>
         <p class="tag-filter-status" hidden></p>
-        <section class="archive-month">
+        <div class="archive-list-view" data-archive-panel="list">
+          <section class="archive-month">
       <h2>August 2026</h2>
       <ul>
+        <li data-tags="painting,procreate,travel">
+          <a class="archive-post-image-link" href="posts/2026-08-30-little-ferry-nap.html" tabindex="-1" aria-hidden="true"><img class="archive-post-thumbnail" src="images/dogincarthumb.png" alt="" width="100" height="100"></a>
+          <div class="archive-post-details">
+            <a class="archive-post-title" href="posts/2026-08-30-little-ferry-nap.html">Little Ferry Nap</a>
+            <time datetime="2026-08-30">August 30, 2026</time>
+            <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=painting">painting</a>, <a class="post-tag" href="posts.html?tag=procreate">procreate</a>, <a class="post-tag" href="posts.html?tag=travel">travel</a></span>
+          </div>
+        </li>
         <li data-tags="food,friends,gratitude">
-          <a href="posts/2026-08-29-as-long-as-youre-payin.html">AS LONG AS YOUR PAYIN', I says</a> -
-          <time datetime="2026-08-29">August 29, 2026</time> -
-          <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=food">food</a>, <a class="post-tag" href="posts.html?tag=friends">friends</a>, <a class="post-tag" href="posts.html?tag=gratitude">gratitude</a></span>
+          <a class="archive-post-image-link" href="posts/2026-08-29-as-long-as-youre-payin.html" tabindex="-1" aria-hidden="true"><img class="archive-post-thumbnail" src="images/smashburgersquare.png" alt="" width="100" height="100"></a>
+          <div class="archive-post-details">
+            <a class="archive-post-title" href="posts/2026-08-29-as-long-as-youre-payin.html">AS LONG AS YOUR PAYIN', I says</a>
+            <time datetime="2026-08-29">August 29, 2026</time>
+            <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=food">food</a>, <a class="post-tag" href="posts.html?tag=friends">friends</a>, <a class="post-tag" href="posts.html?tag=gratitude">gratitude</a></span>
+          </div>
         </li>
         <li data-tags="creativity,resistance,writing">
-          <a href="posts/2026-08-28-evil-rope.html">Evil Rope</a> -
-          <time datetime="2026-08-28">August 28, 2026</time> -
-          <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=creativity">creativity</a>, <a class="post-tag" href="posts.html?tag=resistance">resistance</a>, <a class="post-tag" href="posts.html?tag=writing">writing</a></span>
+          <a class="archive-post-image-link" href="posts/2026-08-28-evil-rope.html" tabindex="-1" aria-hidden="true"><img class="archive-post-thumbnail" src="images/cutesnake.png" alt="" width="100" height="100"></a>
+          <div class="archive-post-details">
+            <a class="archive-post-title" href="posts/2026-08-28-evil-rope.html">Evil Rope</a>
+            <time datetime="2026-08-28">August 28, 2026</time>
+            <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=creativity">creativity</a>, <a class="post-tag" href="posts.html?tag=resistance">resistance</a>, <a class="post-tag" href="posts.html?tag=writing">writing</a></span>
+          </div>
         </li>
         <li data-tags="creativity,personal,video,art,painting,procreate,drawing">
-          <a href="posts/2026-08-27-has-this-ever-happened-to-you.html">Has This Ever Happened to You?</a> -
-          <time datetime="2026-08-27">August 27, 2026</time> -
-          <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=creativity">creativity</a>, <a class="post-tag" href="posts.html?tag=personal">personal</a>, <a class="post-tag" href="posts.html?tag=video">video</a>, <a class="post-tag" href="posts.html?tag=art">art</a>, <a class="post-tag" href="posts.html?tag=painting">painting</a>, <a class="post-tag" href="posts.html?tag=procreate">procreate</a>, <a class="post-tag" href="posts.html?tag=drawing">drawing</a></span>
+          <a class="archive-post-image-link" href="posts/2026-08-27-has-this-ever-happened-to-you.html" tabindex="-1" aria-hidden="true"><img class="archive-post-thumbnail" src="images/hasthiseverhappenedtoyou.png" alt="" width="100" height="100"></a>
+          <div class="archive-post-details">
+            <a class="archive-post-title" href="posts/2026-08-27-has-this-ever-happened-to-you.html">Has This Ever Happened to You?</a>
+            <time datetime="2026-08-27">August 27, 2026</time>
+            <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=creativity">creativity</a>, <a class="post-tag" href="posts.html?tag=personal">personal</a>, <a class="post-tag" href="posts.html?tag=video">video</a>, <a class="post-tag" href="posts.html?tag=art">art</a>, <a class="post-tag" href="posts.html?tag=painting">painting</a>, <a class="post-tag" href="posts.html?tag=procreate">procreate</a>, <a class="post-tag" href="posts.html?tag=drawing">drawing</a></span>
+          </div>
         </li>
       </ul>
     </section>
+        </div>
+        <div class="archive-feed-view" data-archive-panel="feed" hidden>
+          <article class="feed-post" data-tags="painting,procreate,travel">
+      <header class="feed-post-header">
+        <h2><a href="posts/2026-08-30-little-ferry-nap.html">Little Ferry Nap</a></h2>
+        <p class="post-date"><time datetime="2026-08-30">August 30, 2026</time></p>
+      </header>
+      <div class="feed-post-content"><p>Took a quick little trip with a friend to Vashon Island this weekend. Matter of fact, I took a little trip with a friend to Vashon Island last weekend too. Huh. I should post about that one.</p>
+
+<p>While we were on the ferry on our way there, I looked to my right and saw the cutest thing. A giant pitbull trying to figure out how to climb over the center console of the front seat of the neighboring car so that it could lay down on it's mama's lap and take a nap. And after much anxiety and trial and error, the pooch finally figured it out. And I loved the way it was laying down all awkward, butt in lap and chin on open window.</p>
+
+<p>I immediately thought that it would make such cute painting, but I was worried about taking a picture and looking creepy. But I moved fast and snapped a pic, and last night I did a quick painting of it in Procreate</p>
+
+<img src="images/dogincar.png" alt="Doggy Nappin'">
+
+<p>I don't typically love paintings like that one, they're just not my style. But I wanted to capture the moment and I'm glad I did.</p></div>
+      <div class="post-tags" aria-label="Post tags">
+        <a class="post-tag" href="posts.html?tag=painting">painting</a>
+            <a class="post-tag" href="posts.html?tag=procreate">procreate</a>
+            <a class="post-tag" href="posts.html?tag=travel">travel</a>
+      </div>
+      <details class="feed-comments">
+        <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
+        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-30-little-ferry-nap">
+  <h2>Comments</h2>
+
+  <form class="comment-form">
+    <div class="comment-reply-context" hidden>
+      Replying to <strong class="comment-reply-name"></strong>
+      <button type="button" class="comment-cancel-reply">Cancel reply</button>
+    </div>
+    <input type="hidden" name="parentId" value="">
+
+    <label class="comment-field">
+      <span>Name</span>
+      <input type="text" name="name" maxlength="60" autocomplete="name" required>
+    </label>
+
+    <label class="comment-anonymous-option">
+      <input type="checkbox" name="anonymous">
+      <span>Post anonymously</span>
+    </label>
+
+    <label class="comment-field">
+      <span>Comment</span>
+      <textarea name="body" rows="5" maxlength="2000" required></textarea>
+    </label>
+
+    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
+    <button type="submit" class="comment-submit">Post comment</button>
+    <p class="comment-form-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="comments-loading" role="status">Loading comments...</p>
+  <div class="comment-list" aria-live="polite"></div>
+</section>
+
+      </details>
+    </article>
+<article class="feed-post" data-tags="food,friends,gratitude">
+      <header class="feed-post-header">
+        <h2><a href="posts/2026-08-29-as-long-as-youre-payin.html">AS LONG AS YOUR PAYIN', I says</a></h2>
+        <p class="post-date"><time datetime="2026-08-29">August 29, 2026</time></p>
+      </header>
+      <div class="feed-post-content"><p>Hey, Pal. So there I was, right. Mindin' my own and workin' on some art or some shit. Then I gets up to go take a leak and I sees all this luggage in my living room. Now I was confused, right! And I says to myself, I says, "what the heck?" I was just about to phone the roommate when all 'a sudden BOOM! In walks Adam.</p>
+
+<p>Adam's a guy from outa' town and a good friend to the roommate and me see. And typically the roommate's gonna keep me aprised of the visists from Adam, but this time I had no clue the guy was comin' to town! So I'm stoked as all get out right. And Adam and I, we's catching up right. How's the job, how's the romantical stuff goin', you know. He had a job interview today but he don't want people knowin' that. And he says to me, he says, "Hey Pal, we're gettin dinner and you's comin' wit us!" And I says, "AS LONG AS YOU'RE PAYIN" I says. hahahahahaha</p>
+
+<p>So anyways we get in the car and we make our way to Capitol Hill right. And boy, the Apple Maps takes us such a wonky way all our eyes are crossed. But anyway. We gets ourselves to <a href="https://www.harrysfinefoods.com/" target="_blank">Harry's Fine Foods</a> cause the roommate's got a Pal who works there right. She gets us a table and she says to us, she says, "Happy hour fer anudder thirty minutes boys." And we says "hell yeah, we'll take three smash burgers" which is only available on happy hour ya know.</p>
+
+<h2>Well anyways just take a look, Pal</h2>
+
+<img src="images/smashburger.png" alt="Just take a look at this smash burger">
+
+<p>We gets a few more tasty things but boy lemme tell ya that was the best burger I've ever had and I've had a lot of burgers ya know. Hard to beat, hard to beat.</p>
+
+<p>So anyways we head back in the directions 'a home and we stop off to get some desert at <a href="https://saltys.com/" target="_blank">Salty's</a>, you know. You know Salty's, yeah? The roommate's got a coupla' Pals who work there right. Anyways we went and got ourselves a coctail at Da Nook after dat, see. 'Cept mine was non-alcoholic on accounta' me not drinkin' no more. But it was good! We hadda good time even though I couldn't hear nothin' cause the people sittin behind me was loud but I still had fun.</p>
+
+<p>Here's me and the cake I got at Salty's hahahahahaha</p>
+
+<img src="images/tonyatsaltys.png" alt="Here I am at Salty's n'dat cake wasn't very good, Pal">
+
+<p>There's Adam on the couch at Da Nook ya know I gotta preserve his anatamoninity ya know but he looks good he's single ladies</p>
+
+<img src="images/adamatthenook.png" alt="Here's Adam he looks good ladies">
+
+<p>So anyways we had a real good time. All the best to ya's, Pal.</p></div>
+      <div class="post-tags" aria-label="Post tags">
+        <a class="post-tag" href="posts.html?tag=food">food</a>
+            <a class="post-tag" href="posts.html?tag=friends">friends</a>
+            <a class="post-tag" href="posts.html?tag=gratitude">gratitude</a>
+      </div>
+      <details class="feed-comments">
+        <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
+        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-29-as-long-as-youre-payin">
+  <h2>Comments</h2>
+
+  <form class="comment-form">
+    <div class="comment-reply-context" hidden>
+      Replying to <strong class="comment-reply-name"></strong>
+      <button type="button" class="comment-cancel-reply">Cancel reply</button>
+    </div>
+    <input type="hidden" name="parentId" value="">
+
+    <label class="comment-field">
+      <span>Name</span>
+      <input type="text" name="name" maxlength="60" autocomplete="name" required>
+    </label>
+
+    <label class="comment-anonymous-option">
+      <input type="checkbox" name="anonymous">
+      <span>Post anonymously</span>
+    </label>
+
+    <label class="comment-field">
+      <span>Comment</span>
+      <textarea name="body" rows="5" maxlength="2000" required></textarea>
+    </label>
+
+    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
+    <button type="submit" class="comment-submit">Post comment</button>
+    <p class="comment-form-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="comments-loading" role="status">Loading comments...</p>
+  <div class="comment-list" aria-live="polite"></div>
+</section>
+
+      </details>
+    </article>
+<article class="feed-post" data-tags="creativity,resistance,writing">
+      <header class="feed-post-header">
+        <h2><a href="posts/2026-08-28-evil-rope.html">Evil Rope</a></h2>
+        <p class="post-date"><time datetime="2026-08-28">August 28, 2026</time></p>
+      </header>
+      <div class="feed-post-content"><p>The biggest hurdle for me on creating this blog so far has been writing the blog posts. I wrote one weeks ago just for the sake of having filler while I build out this website. I'm not a fan of it. I don't like how it reads or feels while you read it. It's not clean or polished, and it feels like a kid wrote it. You can tell I rushed my way through it.</p>
+
+<p>The mere fact that I had to write it at all was annoying and writing itself was a chore. And while I doubt that anyone will ever see it because its going to get buried under a pile of posts and, well, who's reading this blog anyway... I still hate that it exists in the form that it does. It's lazy and roughshod and sloppy, like a house kept together with scotch tape. Its a living reminder of this part of my creative self that I'm learning to see for the first time. And it's a scary monster.</p>
+
+<p>But that's been the story of my creative life in a nutshell, really.</p>
+
+<div class="anxiety-arrow-scene">
+  <ol>
+    <li>Feel inspired</li>
+    <li>Start a project</li>
+    <li>Get anxious</li>
+    <li>Crank it out</li>
+    <li>Stick tape on it</li>
+    <li>Show it to the world for validation as fast as possible</li>
+    <li>Quickly move on</li>
+  </ol>
+
+  <h2>That's the thing.<span class="anxiety-arrow-only"> <button class="anxiety-arrow-toggle" type="button" aria-expanded="false">Anxiety.</button></span><span class="anxiety-arrow-soft-text"> Anxiety.</span></h2>
+
+  <button class="anxiety-arrow-reveal" type="button" aria-label="Hide anxiety arrow">
+    <img class="anxiety-arrow-off" src="images/anxietyarrowoff.png" alt="">
+    <img class="anxiety-arrow-on" src="images/anxietyarrowon.png" alt="">
+  </button>
+</div>
+
+<p>Looking back on all of the artistic eras of my life, one of the throughlines through all of them has been an anxious need to be done with the projects I start. Yes, I also had the "need" to start the projects; inspiration happens and heats up fast and one must strike while the iron is hot. But once I'm locked in to a project, my body starts to feel an intense need to get it done. I used to think this was so I could take a picture of the finished product and get validation from people online, and that does still feel good, but now I know that its because of something else that uses my anxiety.</p>
+
+<p>I know it has a name, but I can't remmeber it. Something that starts with an "R." This feeling of, I don't know what, a thick snake-like rope, like three inches in diameter pulling from inside my body towards the end of the project. The rope is attached to my gut, loops upwards, and comes out between my eyes. It's a pulsing, off-white, living, glowing tube and it's angry and slippery. I really don't like it so I have to finish the project so that it goes slack and slinks back inside my body.</p>
+
+<p>Is that weird?</p>
+
+<p>Anyway, how is that related to this blog? Huh. I honestly have no idea. I think maybe the thought was that the idea of building the site is much less scary than writing the blog posts themselves. Because that big rope, snake, whatever monster is going to come out and start pulling, and I have to somehow figure out how to fight it, take my time, enjoy that slow process, and create.</p>
+
+<p>Oh that's right, it's called <a href="https://share.google/WTe1j95L8YrHD20nj">Resistance.</a></p>
+
+<img src="images/evilsnakemate.png" alt="EVIL SNEK">
+
+<p>I have a feeling Resistance will be a common topic here.</p></div>
+      <div class="post-tags" aria-label="Post tags">
+        <a class="post-tag" href="posts.html?tag=creativity">creativity</a>
+            <a class="post-tag" href="posts.html?tag=resistance">resistance</a>
+            <a class="post-tag" href="posts.html?tag=writing">writing</a>
+      </div>
+      <details class="feed-comments">
+        <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
+        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-28-evil-rope">
+  <h2>Comments</h2>
+
+  <form class="comment-form">
+    <div class="comment-reply-context" hidden>
+      Replying to <strong class="comment-reply-name"></strong>
+      <button type="button" class="comment-cancel-reply">Cancel reply</button>
+    </div>
+    <input type="hidden" name="parentId" value="">
+
+    <label class="comment-field">
+      <span>Name</span>
+      <input type="text" name="name" maxlength="60" autocomplete="name" required>
+    </label>
+
+    <label class="comment-anonymous-option">
+      <input type="checkbox" name="anonymous">
+      <span>Post anonymously</span>
+    </label>
+
+    <label class="comment-field">
+      <span>Comment</span>
+      <textarea name="body" rows="5" maxlength="2000" required></textarea>
+    </label>
+
+    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
+    <button type="submit" class="comment-submit">Post comment</button>
+    <p class="comment-form-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="comments-loading" role="status">Loading comments...</p>
+  <div class="comment-list" aria-live="polite"></div>
+</section>
+
+      </details>
+    </article>
+<article class="feed-post" data-tags="creativity,personal,video,art,painting,procreate,drawing">
+      <header class="feed-post-header">
+        <h2><a href="posts/2026-08-27-has-this-ever-happened-to-you.html">Has This Ever Happened to You?</a></h2>
+        <p class="post-date"><time datetime="2026-08-27">August 27, 2026</time></p>
+      </header>
+      <div class="feed-post-content"><p>I have this problem recently. I’ve been incredibly inspired to create and learn new things that it’s sort of dominating my brain space. I’ll be honest, I haven’t had this kind of spark to create in a very long time, and never at this level. It’s coming from deep inside, and it’s literally keeping me up at night. There’s so much I want to do and learn that I can’t turn my brain off. I’ll be exhausted at the end of the day and I’ll just be laying there in bed unable to sleep, my brain spinning.</p>
+
+<p>I’ve never been pulled towards one kind of artistic expression, I’ve always been excited by many things. Drawing is one of those things, especially portraits. I’m working on one right now. It’s been 12 hours of work so far and I’m not anywhere near done. I think about the drawing all the time. It takes serious will power to put it away and come back to it later. But I can feel the portrait sitting there staring at me. Thumping sounds coming from the drawing pad like Jumanji.</p>
+
+<p>I’m building this website too. There’s still a lot of work to be done. I’m drawing the image assets, learning css, learning GitHub and Terminal command prompt, and I’m loving every minute of it. When I’m not drawing I’m working on the site, slowly figuring out the code and making it look the way I want.</p>
+
+<p>I’m writing story ideas down all the time. Little blurbs about characters; heroes and villains, settings and worlds. All of these things to hopefully one day put down on a page or in film.</p>
+
+<p>I’m filming little moments with my iPhone, using Cinematic mode at 24fps usually, to hopefully create cohesive videos to post. I love little videos. <a href="https://www.tiktok.com/@therealtonykevin/video/7590505054344449310?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7663656291458532894">Here’s one I made that I love.</a></p>
+
+<p>I have all of these feelings, intense urges to bring things in my mind to life. My mind is just going going going, even when I’m exhausted.</p>
+
+<p>I’m grateful for it, but I am worried about burn out. It’s happened before. I don’t know if it’s because of ADHD or whatever my version of non-neuro-typical-ness is, but I tend to obsess over things. The fire burns hot and fast and then I’m burnt out. I don’t want that to happen. I want to take my projects slowly and give myself the time and space to learn things properly. I'm taking this current bout of inspiration much slower than I would have in the past, so I'm hopeful that I can maintain it in a steady way, rather than burning out. I’m trying to be mindful of my energy and not overdo it. I’m trying to take breaks and rest when I need to. But it’s hard. The pull is strong.</p>
+
+<p>Is this normal?</p>
+
+<p>Here’s the drawing so far. The first was a super quick color value test in Procreate, the second is the physical piece. Still a lot to do:</p>
+
+<div class="portrait-row">
+  <img src="images/portrait1procreate.png" alt="Portrait">
+  <img src="images/portrait1.jpeg" alt="Portrait">
+</div></div>
+      <div class="post-tags" aria-label="Post tags">
+        <a class="post-tag" href="posts.html?tag=creativity">creativity</a>
+            <a class="post-tag" href="posts.html?tag=personal">personal</a>
+            <a class="post-tag" href="posts.html?tag=video">video</a>
+            <a class="post-tag" href="posts.html?tag=art">art</a>
+            <a class="post-tag" href="posts.html?tag=painting">painting</a>
+            <a class="post-tag" href="posts.html?tag=procreate">procreate</a>
+            <a class="post-tag" href="posts.html?tag=drawing">drawing</a>
+      </div>
+      <details class="feed-comments">
+        <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
+        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-27-has-this-ever-happened-to-you">
+  <h2>Comments</h2>
+
+  <form class="comment-form">
+    <div class="comment-reply-context" hidden>
+      Replying to <strong class="comment-reply-name"></strong>
+      <button type="button" class="comment-cancel-reply">Cancel reply</button>
+    </div>
+    <input type="hidden" name="parentId" value="">
+
+    <label class="comment-field">
+      <span>Name</span>
+      <input type="text" name="name" maxlength="60" autocomplete="name" required>
+    </label>
+
+    <label class="comment-anonymous-option">
+      <input type="checkbox" name="anonymous">
+      <span>Post anonymously</span>
+    </label>
+
+    <label class="comment-field">
+      <span>Comment</span>
+      <textarea name="body" rows="5" maxlength="2000" required></textarea>
+    </label>
+
+    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
+    <button type="submit" class="comment-submit">Post comment</button>
+    <p class="comment-form-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="comments-loading" role="status">Loading comments...</p>
+  <div class="comment-list" aria-live="polite"></div>
+</section>
+
+      </details>
+    </article>
+        </div>
       </section>
     </div>
 

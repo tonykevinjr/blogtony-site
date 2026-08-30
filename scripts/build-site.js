@@ -106,8 +106,18 @@ function imagePath(post, root) {
   return post.metadata.image.replace(/^(\.\.\/)?images\//, `${root}images/`);
 }
 
+function postContentForRoot(post, root) {
+  return post.content.replaceAll('src="../images/', `src="${root}images/`);
+}
+
 function recentPostsHtml(posts, root, postUrl) {
-  return posts.slice(0, 1).map((post) => {
+  const pinnedPosts = posts.filter((post) => post.metadata.pinned?.toLowerCase() === "true");
+  if (pinnedPosts.length > 1) {
+    throw new Error(`Only one post can be pinned in the sidebar. Found: ${pinnedPosts.map((post) => post.filename).join(", ")}`);
+  }
+  const sidebarPosts = pinnedPosts.length === 1 ? pinnedPosts : posts.slice(0, 1);
+
+  return sidebarPosts.map((post) => {
     const thumbnail = imagePath(post, root);
     const imageHtml = thumbnail
       ? `\n      <img class="recent-post-thumbnail sidebar-float" src="${thumbnail}" alt="${escapeHtml(post.metadata.title)}" width="100" height="100">`
@@ -157,12 +167,22 @@ function buildArchivePage(posts, options) {
   }
 
   const postArchive = [...groups.entries()].map(([monthYear, monthPosts]) => {
-    const items = monthPosts.map((post) => `
+    const items = monthPosts.map((post) => {
+      const thumbnail = imagePath(post, options.root);
+      const imageHtml = thumbnail
+        ? `<img class="archive-post-thumbnail" src="${thumbnail}" alt="" width="100" height="100">`
+        : `<span class="archive-post-thumbnail archive-post-thumbnail-placeholder" aria-hidden="true"></span>`;
+
+      return `
         <li data-tags="${escapeHtml(tagNames(post.metadata.tags))}">
-          <a href="${options.postUrl(post)}">${escapeHtml(post.metadata.title)}</a> -
-          <time datetime="${post.metadata.date}">${formatDate(post.metadata.date)}</time> -
-          <span class="archive-tags">Tags: ${formatArchiveTags(post.metadata.tags, options.archiveUrl)}</span>
-        </li>`).join("");
+          <a class="archive-post-image-link" href="${options.postUrl(post)}" tabindex="-1" aria-hidden="true">${imageHtml}</a>
+          <div class="archive-post-details">
+            <a class="archive-post-title" href="${options.postUrl(post)}">${escapeHtml(post.metadata.title)}</a>
+            <time datetime="${post.metadata.date}">${formatDate(post.metadata.date)}</time>
+            <span class="archive-tags">Tags: ${formatArchiveTags(post.metadata.tags, options.archiveUrl)}</span>
+          </div>
+        </li>`;
+    }).join("");
 
     return `<section class="archive-month">
       <h2>${monthYear}</h2>
@@ -171,10 +191,31 @@ function buildArchivePage(posts, options) {
     </section>`;
   }).join("\n");
 
+  const postFeed = posts.map((post) => {
+    const postSlug = post.filename.replace(/\.html$/, "");
+    const comments = replaceTokens(readProjectFile("partials", "comments.html"), { postSlug });
+
+    return `<article class="feed-post" data-tags="${escapeHtml(tagNames(post.metadata.tags))}">
+      <header class="feed-post-header">
+        <h2><a href="${options.postUrl(post)}">${escapeHtml(post.metadata.title)}</a></h2>
+        <p class="post-date"><time datetime="${post.metadata.date}">${formatDate(post.metadata.date)}</time></p>
+      </header>
+      <div class="feed-post-content">${postContentForRoot(post, options.root)}</div>
+      <div class="post-tags" aria-label="Post tags">
+        ${formatTags(post.metadata.tags, options.archiveUrl)}
+      </div>
+      <details class="feed-comments">
+        <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
+        ${comments}
+      </details>
+    </article>`;
+  }).join("\n");
+
   return replaceTokens(readProjectFile("templates", "posts-page.html"), {
     root: options.root,
     ...shared,
-    postArchive
+    postArchive,
+    postFeed
   });
 }
 

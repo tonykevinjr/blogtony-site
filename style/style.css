@@ -752,6 +752,111 @@ img {
   height: 100px;
   object-fit: cover;
 }
+.archive-view-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 0 1.25rem;
+}
+.archive-view-toggle button,
+.feed-comments > summary {
+  padding: 0.45rem 0.8rem;
+  border: 3px outset #eeeeee;
+  background: #a6ffb1;
+  color: #17151d;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+.archive-view-toggle button[aria-pressed="true"] {
+  border-style: inset;
+  background: #ff00dd;
+}
+.archive-list-view[hidden],
+.archive-feed-view[hidden] {
+  display: none;
+}
+.archive-month ul {
+  display: grid;
+  gap: 0.85rem;
+  padding-left: 0;
+  list-style: none;
+}
+.archive-month li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.archive-month li[hidden],
+.feed-post[hidden] {
+  display: none;
+}
+.archive-post-image-link {
+  flex: 0 0 100px;
+}
+.archive-post-thumbnail {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  border: 2px solid #17151d;
+  object-fit: cover;
+}
+.archive-post-thumbnail-placeholder {
+  background: rgba(255, 255, 255, 0.35);
+}
+.archive-post-details {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.archive-post-title {
+  font-size: 1.12em;
+  font-weight: bold;
+}
+.archive-post-details time,
+.archive-post-details .archive-tags {
+  display: block;
+}
+.feed-post {
+  padding-bottom: 2.75rem;
+  margin-bottom: 2.75rem;
+  border-bottom: 4px double #17151d;
+}
+.feed-post:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.feed-post-header h2 {
+  margin-bottom: 0.25rem;
+}
+.feed-post-header .post-date {
+  margin-top: 0;
+}
+.feed-post-content img {
+  max-width: calc(100% - 32px);
+  height: auto;
+}
+.feed-post .post-tags {
+  margin-top: 1.5rem;
+}
+.feed-comments {
+  margin-top: 1.5rem;
+}
+.feed-comments > summary {
+  width: fit-content;
+  list-style-position: inside;
+}
+.feed-comments[open] > summary {
+  border-style: inset;
+  background: #ff00dd;
+}
+.feed-comments .comment-section {
+  margin-top: 1rem;
+}
+.feed-comments .comment-section > h2 {
+  display: none;
+}
 .archive-tags .post-tag {
   color: #6b6b6b;
   text-decoration: underline;
@@ -1217,6 +1322,14 @@ body.soft-mode .comment-cancel-reply,
 body.soft-mode .comment-actions button {
   background: #eeeeee;
 }
+body.soft-mode .archive-view-toggle button,
+body.soft-mode .feed-comments > summary {
+  background: #eeeeee;
+}
+body.soft-mode .archive-view-toggle button[aria-pressed="true"],
+body.soft-mode .feed-comments[open] > summary {
+  background: #cfcfcf;
+}
 
 @media (max-width: 760px) {
   .site-warning-toggle {
@@ -1412,6 +1525,19 @@ body.soft-mode .comment-actions button {
 
   .comment-section {
     margin-top: 2rem;
+  }
+
+  .archive-post-image-link {
+    flex-basis: 82px;
+  }
+
+  .archive-post-thumbnail {
+    width: 82px;
+    height: 82px;
+  }
+
+  .feed-post-content img {
+    max-width: 100%;
   }
 
   .comment-form {

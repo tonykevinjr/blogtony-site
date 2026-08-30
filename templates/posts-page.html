@@ -9,6 +9,8 @@
     <link href="{{root}}style/style.css" rel="stylesheet" type="text/css">
     <script src="{{root}}theme.js" defer></script>
     <script src="{{root}}scripts/archive-filter.js" defer></script>
+    <script src="{{root}}scripts/comments.js" defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onCommentsTurnstileLoad&amp;render=explicit" defer></script>
   </head>
   <body id="top">
     {{topbar}}
@@ -39,8 +41,17 @@
 
       <section class="right-column">
         <h1>Posts</h1>
+        <div class="archive-view-toggle" role="group" aria-label="Choose how posts are displayed">
+          <button type="button" data-archive-view="list" aria-pressed="true">List view</button>
+          <button type="button" data-archive-view="feed" aria-pressed="false">Feed view</button>
+        </div>
         <p class="tag-filter-status" hidden></p>
-        {{postArchive}}
+        <div class="archive-list-view" data-archive-panel="list">
+          {{postArchive}}
+        </div>
+        <div class="archive-feed-view" data-archive-panel="feed" hidden>
+          {{postFeed}}
+        </div>
       </section>
     </div>
 
