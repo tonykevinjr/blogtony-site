@@ -44,5 +44,6 @@ copyDirectory("posts");
 copyDirectory("images");
 copyDirectory("style");
 copyFile(path.join("scripts", "archive-filter.js"));
+copyFile(path.join("scripts", "comments.js"));
 
 console.log("Prepared deploy/ with the public site files for Neocities.");

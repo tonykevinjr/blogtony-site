@@ -130,6 +130,8 @@ function sharedPageParts(root, posts, postUrl) {
 
 function buildPostPage(post, posts, options) {
   const shared = sharedPageParts(options.root, posts, options.postUrl);
+  const postSlug = post.filename.replace(/\.html$/, "");
+  const comments = replaceTokens(readProjectFile("partials", "comments.html"), { postSlug });
 
   return replaceTokens(readProjectFile("templates", "post-page.html"), {
     root: options.root,
@@ -139,7 +141,8 @@ function buildPostPage(post, posts, options) {
     postDate: post.metadata.date,
     postDateDisplay: formatDate(post.metadata.date),
     postTags: formatTags(post.metadata.tags, options.archiveUrl),
-    postContent: post.content
+    postContent: post.content,
+    comments
   });
 }
 

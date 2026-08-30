@@ -1,0 +1,19 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "blogtony-comments",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-30",
+  "preview_urls": false,
+  "d1_databases": [
+    {
+      "binding": "COMMENTS_DB",
+      "database_name": "blogtony-comments",
+      "database_id": "bbca4d2d-a726-423c-90ee-7de495d695d0"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://tonykevin.neocities.org,http://127.0.0.1:5500,http://localhost:5500",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAEiHinJ-42EWx7S3",
+    "SITE_ORIGIN": "https://tonykevin.neocities.org"
+  }
+}

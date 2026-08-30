@@ -2,3 +2,6 @@
 test-output/
 deploy/
 .neocities-key
+node_modules/
+comments-worker/.wrangler/
+comments-worker/.dev.vars

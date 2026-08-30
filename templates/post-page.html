@@ -8,6 +8,8 @@
     <meta name="description" content="{{postDescription}}">
     <link href="{{root}}style/style.css" rel="stylesheet" type="text/css">
     <script src="{{root}}theme.js" defer></script>
+    <script src="{{root}}scripts/comments.js" defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onCommentsTurnstileLoad&render=explicit" defer></script>
   </head>
   <body id="top">
     {{topbar}}
@@ -18,10 +20,10 @@
         <button class="bunny-trigger" type="button" aria-label="Reveal ignorance">
           <img src="{{root}}images/bunny.png" alt="">
         </button>
-        <button class="ignorance-reveal" type="button" aria-label="Return page to normal">
-          <img src="{{root}}images/ignorance.png" alt="Ignorance is bliss, pay">
-        </button>
       </div>
+      <button class="ignorance-reveal" type="button" aria-label="Return page to normal">
+        <img src="{{root}}images/ignorance.png" alt="Ignorance is bliss, pay">
+      </button>
       <div class="matrix-reveal">
         <button class="matrix-trigger" type="button" aria-label="Reveal a message">
           <img src="{{root}}images/switchmatrix.png" alt="">
@@ -46,6 +48,7 @@
             {{postTags}}
           </div>
         </article>
+        {{comments}}
       </section>
     </div>
 

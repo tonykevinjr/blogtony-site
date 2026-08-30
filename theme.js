@@ -15,6 +15,7 @@
   const trinityMessages = document.querySelectorAll(".trinity-message");
   const anxietyArrowToggles = document.querySelectorAll(".anxiety-arrow-toggle");
   const anxietyArrowReveals = document.querySelectorAll(".anxiety-arrow-reveal");
+  const siteWarningToggle = document.querySelector(".site-warning-toggle");
   const themeImages = document.querySelectorAll("[data-neon-src][data-soft-src]");
   const mobileHeaderQuery = window.matchMedia("(max-width: 760px)");
   const returnDuration = 2600;
@@ -23,6 +24,8 @@
   let matrixReturnTimer;
   let sidebarReturnTimer;
   const anxietyArrowTimers = new WeakMap();
+  let mainbarCrackParts = null;
+  let mainbarCloseTimer;
 
   function updateEasterEggAvailability() {
     const isSoft = document.body.classList.contains("soft-mode");
@@ -193,6 +196,95 @@
 
   syncHeaderToggleToViewport();
   mobileHeaderQuery.addEventListener("change", syncHeaderToggleToViewport);
+
+  function positionMainbarCrack() {
+    if (!mainbarCrackParts) return;
+    const { mainbar, left, right, bunny, control } = mainbarCrackParts;
+    const top = mainbar.offsetTop;
+    const leftEdge = mainbar.offsetLeft;
+    const width = mainbar.offsetWidth;
+    const height = mainbar.offsetHeight;
+
+    [left, right].forEach((fragment) => {
+      fragment.style.top = `${top}px`;
+      fragment.style.left = `${leftEdge}px`;
+      fragment.style.width = `${width}px`;
+      fragment.style.height = `${height}px`;
+    });
+    bunny.style.top = `${top + Math.min(105, height * 0.08)}px`;
+    bunny.style.left = `${leftEdge + (width * 0.58) + 35}px`;
+
+    const gridRect = mainbar.parentElement.getBoundingClientRect();
+    const warningRect = siteWarningToggle.getBoundingClientRect();
+    control.style.top = `${warningRect.top - gridRect.top}px`;
+    control.style.left = `${warningRect.left - gridRect.left}px`;
+    control.style.width = `${warningRect.width}px`;
+    control.style.height = `${warningRect.height}px`;
+  }
+
+  function openMainbarCrack() {
+    const mainbar = document.querySelector(".grid-container > .right-column");
+    const grid = document.querySelector(".grid-container");
+    if (!mainbar || !grid || mobileHeaderQuery.matches || mainbarCrackParts) return;
+    document.body.classList.remove("mainbar-scarred");
+
+    const makeFragment = (side) => {
+      const fragment = mainbar.cloneNode(true);
+      fragment.classList.add("mainbar-crack-fragment", `mainbar-crack-${side}`);
+      fragment.setAttribute("aria-hidden", "true");
+      fragment.inert = true;
+      fragment.querySelectorAll("[id]").forEach((element) => element.removeAttribute("id"));
+      return fragment;
+    };
+
+    const left = makeFragment("left");
+    const right = makeFragment("right");
+    const bunny = document.createElement("div");
+    bunny.className = "mainbar-crack-bunny";
+    bunny.setAttribute("aria-hidden", "true");
+    bunny.innerHTML = '<img src="images/bunny.png" alt="">';
+    const control = document.createElement("button");
+    control.type = "button";
+    control.className = "mainbar-crack-control";
+    control.setAttribute("aria-label", "Repair the cracked mainbar");
+    control.innerHTML = '<img src="images/sitewarning.png" alt="Warning">';
+    control.addEventListener("click", closeMainbarCrack);
+
+    grid.append(bunny, left, right, control);
+    mainbarCrackParts = { mainbar, left, right, bunny, control };
+    positionMainbarCrack();
+    requestAnimationFrame(() => {
+      document.body.classList.remove("mainbar-closing");
+      document.body.classList.add("mainbar-cracked");
+    });
+    siteWarningToggle.setAttribute("aria-pressed", "true");
+    siteWarningToggle.setAttribute("aria-label", "Repair the cracked mainbar");
+  }
+
+  function closeMainbarCrack() {
+    if (!mainbarCrackParts) return;
+    clearTimeout(mainbarCloseTimer);
+    document.body.classList.remove("mainbar-cracked");
+    document.body.classList.add("mainbar-closing");
+    siteWarningToggle.setAttribute("aria-pressed", "false");
+    siteWarningToggle.setAttribute("aria-label", "Crack open the mainbar");
+
+    mainbarCloseTimer = setTimeout(() => {
+      mainbarCrackParts?.left.remove();
+      mainbarCrackParts?.right.remove();
+      mainbarCrackParts?.bunny.remove();
+      mainbarCrackParts?.control.remove();
+      mainbarCrackParts = null;
+      document.body.classList.remove("mainbar-closing");
+      document.body.classList.add("mainbar-scarred");
+    }, 900);
+  }
+
+  siteWarningToggle?.addEventListener("click", () => {
+    if (mainbarCrackParts) closeMainbarCrack();
+    else openMainbarCrack();
+  });
+  window.addEventListener("resize", positionMainbarCrack);
 
   bunnyToggles.forEach((button) => {
     button.addEventListener("click", () => {

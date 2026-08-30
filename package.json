@@ -5,5 +5,8 @@
     "build": "node scripts/build-site.js",
     "prepare-neocities": "node scripts/prepare-neocities-deploy.js",
     "deploy": "node scripts/prepare-neocities-deploy.js && node scripts/deploy-neocities.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.127.1"
   }
 }
