@@ -248,6 +248,24 @@ body {
   transform-style: preserve-3d;
   transition: transform 1600ms ease-in-out;
 }
+.sidebar-wilson {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  z-index: 0;
+  display: block;
+  width: 64%;
+  height: auto;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+  transition: transform 500ms cubic-bezier(.2, .8, .2, 1), opacity 180ms ease;
+}
+body.header-collapsed .sidebar-wilson {
+  opacity: 1;
+  transform: translateY(0);
+}
 .sidebar-front,
 .sidebar-front *,
 .sidebar-front::before,
@@ -407,11 +425,27 @@ body:not(.soft-mode).trinity-message-revealed .trinity-message {
   outline-offset: 4px;
 }
 body:not(.soft-mode).bunny-revealed .grid-container {
-  column-gap: 300px;
+  column-gap: 20px;
+}
+body:not(.soft-mode).bunny-revealed .sidebar-flip {
+  transform: translateX(-140px);
+  transition-duration: 2600ms;
+}
+body:not(.soft-mode).bunny-returning .sidebar-flip {
+  transition-duration: 2600ms;
+}
+body:not(.soft-mode).bunny-revealed .right-column {
+  transform: translateX(140px);
 }
 body:not(.soft-mode).bunny-revealed .bunny-reveal {
   left: calc(50% - 200px);
   pointer-events: auto;
+}
+body:not(.soft-mode).ignorance-revealed .bunny-reveal {
+  z-index: 2;
+}
+body:not(.soft-mode).bunny-returning .bunny-reveal {
+  z-index: 0;
 }
 body:not(.soft-mode).ignorance-revealed .ignorance-reveal {
   opacity: 1;
@@ -979,6 +1013,10 @@ body.header-collapsed .site-footer {
     transform: none !important;
   }
 
+  .sidebar-wilson {
+    display: none;
+  }
+
   .right-column,
   .left-column {
     width: 100%;
@@ -1034,6 +1072,7 @@ body.header-collapsed .site-footer {
     column-gap: 16px;
   }
 
+  body:not(.soft-mode).bunny-revealed .right-column,
   body:not(.soft-mode).matrix-revealed .right-column,
   body.header-collapsed .grid-container,
   body.header-collapsed .site-footer {
