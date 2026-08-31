@@ -123,7 +123,7 @@ function recentPostsHtml(posts, root, postUrl) {
       ? `\n      <img class="recent-post-thumbnail sidebar-float" src="${thumbnail}" alt="${escapeHtml(post.metadata.title)}" width="100" height="100">`
       : "";
 
-    return `<a href="${postUrl(post)}">${escapeHtml(post.metadata.title)}${imageHtml}</a>`;
+    return `<a href="${postUrl(post)}"><span class="recent-post-title">${escapeHtml(post.metadata.title)}</span>${imageHtml}</a>`;
   }).join("\n    <br>\n    ");
 }
 
