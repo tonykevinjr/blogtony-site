@@ -3,14 +3,47 @@ const MAX_COMMENT_LENGTH = 2000;
 const MAX_REPLY_DEPTH = 4;
 const POST_SLUG_PATTERN = /^[a-z0-9][a-z0-9-]{0,119}$/;
 
+function widgetPage(postSlug, sitekey) {
+  return `<!doctype html><html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Comments</title>
+  <link rel="stylesheet" href="https://tonykevin.neocities.org/style/style.css">
+  <style>html,body{margin:0;padding:0;background:transparent!important;background-image:none!important}.comment-section{margin-top:0}</style>
+  <script src="https://tonykevin.neocities.org/scripts/comments.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onCommentsTurnstileLoad&render=explicit" defer></script>
+  </head><body><section class="comment-section" data-comments-api="" data-post-slug="${postSlug}">
+  <h2>Comments</h2><form class="comment-form">
+  <div class="comment-reply-context" hidden>Replying to <strong class="comment-reply-name"></strong> <button type="button" class="comment-cancel-reply">Cancel reply</button></div>
+  <input type="hidden" name="parentId" value="">
+  <label class="comment-field"><span>Name</span><input type="text" name="name" maxlength="60" autocomplete="name" required></label>
+  <label class="comment-anonymous-option"><input type="checkbox" name="anonymous"><span>Post anonymously</span></label>
+  <label class="comment-field"><span>Comment</span><textarea name="body" rows="5" maxlength="2000" required></textarea></label>
+  <div class="comment-turnstile" data-production-sitekey="${sitekey}" data-development-sitekey="1x00000000000000000000AA"></div>
+  <button type="submit" class="comment-submit">Post comment</button><p class="comment-form-status" role="status" aria-live="polite"></p>
+  </form><p class="comments-loading" role="status">Loading comments...</p><div class="comment-list" aria-live="polite"></div>
+  </section></body></html>`;
+}
+
 function configuredOrigins(env) {
   return new Set(String(env.ALLOWED_ORIGINS ?? "").split(",").map((value) => value.trim()).filter(Boolean));
+}
+
+function isLocalDevelopmentOrigin(origin) {
+  try {
+    const url = new URL(origin);
+    return url.protocol === "http:" && ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
+function isAllowedOrigin(origin, env) {
+  return configuredOrigins(env).has(origin) || isLocalDevelopmentOrigin(origin);
 }
 
 function corsHeaders(origin, env) {
   const origins = configuredOrigins(env);
   return {
-    "Access-Control-Allow-Origin": origins.has(origin) ? origin : [...origins][0],
+    "Access-Control-Allow-Origin": isAllowedOrigin(origin, env) ? origin : [...origins][0],
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, CF-Turnstile-Token",
     "Access-Control-Max-Age": "86400",
@@ -243,16 +276,27 @@ async function flagComment(request, env, origin, commentId) {
 export default {
   async fetch(request, env, context) {
     const origin = request.headers.get("Origin") ?? "";
-    const origins = configuredOrigins(env);
 
     if (request.method === "OPTIONS") {
-      if (!origins.has(origin)) return new Response(null, { status: 403 });
+      if (!isAllowedOrigin(origin, env)) return new Response(null, { status: 403 });
       return new Response(null, { status: 204, headers: corsHeaders(origin, env) });
     }
-    if (origin && !origins.has(origin)) return json({ error: "Origin not allowed." }, 403, origin, env);
+    if (origin && !isAllowedOrigin(origin, env)) return json({ error: "Origin not allowed." }, 403, origin, env);
 
     try {
       const url = new URL(request.url);
+      if (request.method === "GET" && url.pathname === "/widget") {
+        const postSlug = cleanSingleLine(url.searchParams.get("post"));
+        if (!POST_SLUG_PATTERN.test(postSlug)) return new Response("A valid post is required.", { status: 400 });
+        return new Response(widgetPage(postSlug, env.TURNSTILE_SITE_KEY), {
+          headers: {
+            "Content-Type": "text/html; charset=UTF-8",
+            "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://tonykevin.neocities.org https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://tonykevin.neocities.org; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src data: https:",
+            "Cache-Control": "public, max-age=300",
+            "X-Content-Type-Options": "nosniff"
+          }
+        });
+      }
       if (request.method === "GET" && url.pathname === "/health") {
         const check = await env.COMMENTS_DB.prepare("SELECT 1 AS ok").first();
         return json({ ok: check?.ok === 1 }, 200, origin, env);

@@ -1221,6 +1221,18 @@ body.header-collapsed .site-footer {
   padding-top: 1.5rem;
   border-top: 3px solid rgba(255, 0, 217, 0.75);
 }
+.comment-frame {
+  display: block;
+  width: 100%;
+  min-height: 640px;
+  margin-top: 3rem;
+  border: 0;
+  background: transparent;
+}
+.feed-comments .comment-frame {
+  min-height: 600px;
+  margin-top: 1rem;
+}
 .comment-section h2 {
   margin-top: 0;
 }

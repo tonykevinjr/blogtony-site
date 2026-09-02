@@ -8,8 +8,7 @@
     <meta name="description" content="It's a painting I did in Procreate of a dog asleep on its owner's lap in the car while we were on the ferry.">
     <link href="../style/style.css" rel="stylesheet" type="text/css">
     <script src="../theme.js" defer></script>
-    <script src="../scripts/comments.js" defer></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onCommentsTurnstileLoad&render=explicit" defer></script>
+    <script src="../scripts/comments-frame.js" defer></script>
   </head>
   <body id="top">
     <div class="topbar">
@@ -68,8 +67,8 @@
 
   <!-- Build Site replaces this with the newest post link or links. -->
   <div class="recent-posts sidebar-float">
-    <a href="2026-08-31-apartment-at-dusk.html"><span class="recent-post-title">Apartment at Dusk</span>
-      <img class="recent-post-thumbnail sidebar-float" src="../images/mccurdy1-cropped.png" alt="Apartment at Dusk" width="100" height="100"></a>
+    <a href="2026-09-02-im-trying-latte-helping.html"><span class="recent-post-title">&quot;I'm&quot; Trying, and This Latte is Helping</span>
+      <img class="recent-post-thumbnail sidebar-float" src="../images/lattecropped.png" alt="&quot;I'm&quot; Trying, and This Latte is Helping" width="100" height="100"></a>
   </div>
 
   <br>
@@ -131,39 +130,7 @@
             <a class="post-tag" href="../posts.html?tag=travel">travel</a>
           </div>
         </article>
-        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-30-little-ferry-nap">
-  <h2>Comments</h2>
-
-  <form class="comment-form">
-    <div class="comment-reply-context" hidden>
-      Replying to <strong class="comment-reply-name"></strong>
-      <button type="button" class="comment-cancel-reply">Cancel reply</button>
-    </div>
-    <input type="hidden" name="parentId" value="">
-
-    <label class="comment-field">
-      <span>Name</span>
-      <input type="text" name="name" maxlength="60" autocomplete="name" required>
-    </label>
-
-    <label class="comment-anonymous-option">
-      <input type="checkbox" name="anonymous">
-      <span>Post anonymously</span>
-    </label>
-
-    <label class="comment-field">
-      <span>Comment</span>
-      <textarea name="body" rows="5" maxlength="2000" required></textarea>
-    </label>
-
-    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
-    <button type="submit" class="comment-submit">Post comment</button>
-    <p class="comment-form-status" role="status" aria-live="polite"></p>
-  </form>
-
-  <p class="comments-loading" role="status">Loading comments...</p>
-  <div class="comment-list" aria-live="polite"></div>
-</section>
+        <iframe class="comment-frame" data-post-slug="2026-08-30-little-ferry-nap" src="https://blogtony-comments.tonykevinjr.workers.dev/widget?post=2026-08-30-little-ferry-nap" title="Comments for this post" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
 
       </section>
     </div>

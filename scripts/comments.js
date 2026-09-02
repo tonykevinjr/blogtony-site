@@ -4,10 +4,30 @@
 
   const initializedSections = new WeakSet();
   let turnstileIsReady = false;
+  const isEmbeddedWidget = window.parent !== window;
+
+  function notifyParent(type, details = {}) {
+    if (!isEmbeddedWidget) return;
+    window.parent.postMessage({ source: "blogtony-comments", type, ...details }, "*");
+  }
+
+  if (isEmbeddedWidget) {
+    const reportHeight = () => notifyParent("height", { height: Math.ceil(document.documentElement.scrollHeight) });
+    new ResizeObserver(reportHeight).observe(document.body);
+    window.addEventListener("load", reportHeight);
+    window.addEventListener("message", (event) => {
+      if (event.data?.type === "blogtony-comments-theme") {
+        document.body.classList.toggle("soft-mode", Boolean(event.data.soft));
+      }
+    });
+  }
 
   function updateFeedCommentCount(section, count) {
     const countElement = section.closest(".feed-comments")?.querySelector(".feed-comment-count");
-    if (!countElement) return;
+    if (!countElement) {
+      notifyParent("count", { postSlug: section.dataset.postSlug, count });
+      return;
+    }
     countElement.textContent = String(count);
     countElement.removeAttribute("aria-label");
   }

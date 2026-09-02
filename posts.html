@@ -9,8 +9,7 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="theme.js" defer></script>
     <script src="scripts/archive-filter.js" defer></script>
-    <script src="scripts/comments.js" defer></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onCommentsTurnstileLoad&amp;render=explicit" defer></script>
+    <script src="scripts/comments-frame.js" defer></script>
   </head>
   <body id="top">
     <div class="topbar">
@@ -69,8 +68,8 @@
 
   <!-- Build Site replaces this with the newest post link or links. -->
   <div class="recent-posts sidebar-float">
-    <a href="posts/2026-08-31-apartment-at-dusk.html"><span class="recent-post-title">Apartment at Dusk</span>
-      <img class="recent-post-thumbnail sidebar-float" src="images/mccurdy1-cropped.png" alt="Apartment at Dusk" width="100" height="100"></a>
+    <a href="posts/2026-09-02-im-trying-latte-helping.html"><span class="recent-post-title">&quot;I'm&quot; Trying, and This Latte is Helping</span>
+      <img class="recent-post-thumbnail sidebar-float" src="images/lattecropped.png" alt="&quot;I'm&quot; Trying, and This Latte is Helping" width="100" height="100"></a>
   </div>
 
   <br>
@@ -119,6 +118,19 @@
         <p class="tag-filter-status" hidden></p>
         <div class="archive-list-view" data-archive-panel="list">
           <section class="archive-month">
+      <h2>September 2026</h2>
+      <ul>
+        <li data-tags="personal,coffee,motivation">
+          <a class="archive-post-image-link" href="posts/2026-09-02-im-trying-latte-helping.html" tabindex="-1" aria-hidden="true"><img class="archive-post-thumbnail" src="images/lattecropped.png" alt="" width="100" height="100"></a>
+          <div class="archive-post-details">
+            <a class="archive-post-title" href="posts/2026-09-02-im-trying-latte-helping.html">&quot;I'm&quot; Trying, and This Latte is Helping</a>
+            <time datetime="2026-09-02">September 2, 2026</time>
+            <span class="archive-tags">Tags: <a class="post-tag" href="posts.html?tag=personal">personal</a>, <a class="post-tag" href="posts.html?tag=coffee">coffee</a>, <a class="post-tag" href="posts.html?tag=motivation">motivation</a></span>
+          </div>
+        </li>
+      </ul>
+    </section>
+<section class="archive-month">
       <h2>August 2026</h2>
       <ul>
         <li data-tags="creativity,personal,art,painting,procreate,photography">
@@ -165,7 +177,36 @@
     </section>
         </div>
         <div class="archive-feed-view" data-archive-panel="feed" hidden>
-          <article class="feed-post" data-tags="creativity,personal,art,painting,procreate,photography">
+          <article class="feed-post" data-tags="personal,coffee,motivation">
+      <header class="feed-post-header">
+        <h2><a href="posts/2026-09-02-im-trying-latte-helping.html">&quot;I'm&quot; Trying, and This Latte is Helping</a></h2>
+        <p class="post-date"><time datetime="2026-09-02">September 2, 2026</time></p>
+      </header>
+      <div class="feed-post-content"><p>Some days you wake up and you just feel so blah. I say "you" but I mean "me." I don't know why I put "me" in quotes. Fuck, I keep doing it. "I" need to re-learn my grammar.</p>
+
+<p>I used to work in an office, see. I used to make beaucoup bucks (did you know that was spelled "beaucoup?" Fuck I did it again) in my highfalutin tech job career. Then the layoff happened. And. Now I work at a restaurant.</p>
+
+<p>A restaurant that I love, by the way. I adore then owners and the staff. It's just... sometimes I really don't like that I work in a kitchen and I get super discouraged. I feel sort of stuck. Cue Freddie Mercury desiring to break free via song.</p>
+
+<p>But on the (Mr.?) brightside, I made such a bomb latte today you guys, it's not even funny. The perfect espresso pull with the silkiest foamy oat milk. I can't do latte art for shit, but I don't care. I made noises upon each sip. My sister made my mug too, so that probably definitely maybe helps enhance the flavor.</p>
+
+<h2>Today will be a good day.</h2>
+
+<img src="images/latte.png" alt="Latte">
+
+<p>It has to be a good day. It may be rainy and yucky outside, but "my" (sigh) latte has transformed the outlook. And the weather man says "mostly latte with a 100% chance of joy."</p></div>
+      <div class="post-tags" aria-label="Post tags">
+        <a class="post-tag" href="posts.html?tag=personal">personal</a>
+            <a class="post-tag" href="posts.html?tag=coffee">coffee</a>
+            <a class="post-tag" href="posts.html?tag=motivation">motivation</a>
+      </div>
+      <details class="feed-comments">
+        <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
+        <iframe class="comment-frame" data-post-slug="2026-09-02-im-trying-latte-helping" src="https://blogtony-comments.tonykevinjr.workers.dev/widget?post=2026-09-02-im-trying-latte-helping" title="Comments for this post" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
+
+      </details>
+    </article>
+<article class="feed-post" data-tags="creativity,personal,art,painting,procreate,photography">
       <header class="feed-post-header">
         <h2><a href="posts/2026-08-31-apartment-at-dusk.html">Apartment at Dusk</a></h2>
         <p class="post-date"><time datetime="2026-08-31">August 31, 2026</time></p>
@@ -195,39 +236,7 @@
       </div>
       <details class="feed-comments">
         <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
-        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-31-apartment-at-dusk">
-  <h2>Comments</h2>
-
-  <form class="comment-form">
-    <div class="comment-reply-context" hidden>
-      Replying to <strong class="comment-reply-name"></strong>
-      <button type="button" class="comment-cancel-reply">Cancel reply</button>
-    </div>
-    <input type="hidden" name="parentId" value="">
-
-    <label class="comment-field">
-      <span>Name</span>
-      <input type="text" name="name" maxlength="60" autocomplete="name" required>
-    </label>
-
-    <label class="comment-anonymous-option">
-      <input type="checkbox" name="anonymous">
-      <span>Post anonymously</span>
-    </label>
-
-    <label class="comment-field">
-      <span>Comment</span>
-      <textarea name="body" rows="5" maxlength="2000" required></textarea>
-    </label>
-
-    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
-    <button type="submit" class="comment-submit">Post comment</button>
-    <p class="comment-form-status" role="status" aria-live="polite"></p>
-  </form>
-
-  <p class="comments-loading" role="status">Loading comments...</p>
-  <div class="comment-list" aria-live="polite"></div>
-</section>
+        <iframe class="comment-frame" data-post-slug="2026-08-31-apartment-at-dusk" src="https://blogtony-comments.tonykevinjr.workers.dev/widget?post=2026-08-31-apartment-at-dusk" title="Comments for this post" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
 
       </details>
     </article>
@@ -254,39 +263,7 @@
       </div>
       <details class="feed-comments">
         <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
-        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-30-little-ferry-nap">
-  <h2>Comments</h2>
-
-  <form class="comment-form">
-    <div class="comment-reply-context" hidden>
-      Replying to <strong class="comment-reply-name"></strong>
-      <button type="button" class="comment-cancel-reply">Cancel reply</button>
-    </div>
-    <input type="hidden" name="parentId" value="">
-
-    <label class="comment-field">
-      <span>Name</span>
-      <input type="text" name="name" maxlength="60" autocomplete="name" required>
-    </label>
-
-    <label class="comment-anonymous-option">
-      <input type="checkbox" name="anonymous">
-      <span>Post anonymously</span>
-    </label>
-
-    <label class="comment-field">
-      <span>Comment</span>
-      <textarea name="body" rows="5" maxlength="2000" required></textarea>
-    </label>
-
-    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
-    <button type="submit" class="comment-submit">Post comment</button>
-    <p class="comment-form-status" role="status" aria-live="polite"></p>
-  </form>
-
-  <p class="comments-loading" role="status">Loading comments...</p>
-  <div class="comment-list" aria-live="polite"></div>
-</section>
+        <iframe class="comment-frame" data-post-slug="2026-08-30-little-ferry-nap" src="https://blogtony-comments.tonykevinjr.workers.dev/widget?post=2026-08-30-little-ferry-nap" title="Comments for this post" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
 
       </details>
     </article>
@@ -325,39 +302,7 @@
       </div>
       <details class="feed-comments">
         <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
-        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-29-as-long-as-youre-payin">
-  <h2>Comments</h2>
-
-  <form class="comment-form">
-    <div class="comment-reply-context" hidden>
-      Replying to <strong class="comment-reply-name"></strong>
-      <button type="button" class="comment-cancel-reply">Cancel reply</button>
-    </div>
-    <input type="hidden" name="parentId" value="">
-
-    <label class="comment-field">
-      <span>Name</span>
-      <input type="text" name="name" maxlength="60" autocomplete="name" required>
-    </label>
-
-    <label class="comment-anonymous-option">
-      <input type="checkbox" name="anonymous">
-      <span>Post anonymously</span>
-    </label>
-
-    <label class="comment-field">
-      <span>Comment</span>
-      <textarea name="body" rows="5" maxlength="2000" required></textarea>
-    </label>
-
-    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
-    <button type="submit" class="comment-submit">Post comment</button>
-    <p class="comment-form-status" role="status" aria-live="polite"></p>
-  </form>
-
-  <p class="comments-loading" role="status">Loading comments...</p>
-  <div class="comment-list" aria-live="polite"></div>
-</section>
+        <iframe class="comment-frame" data-post-slug="2026-08-29-as-long-as-youre-payin" src="https://blogtony-comments.tonykevinjr.workers.dev/widget?post=2026-08-29-as-long-as-youre-payin" title="Comments for this post" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
 
       </details>
     </article>
@@ -411,39 +356,7 @@
       </div>
       <details class="feed-comments">
         <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
-        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-28-evil-rope">
-  <h2>Comments</h2>
-
-  <form class="comment-form">
-    <div class="comment-reply-context" hidden>
-      Replying to <strong class="comment-reply-name"></strong>
-      <button type="button" class="comment-cancel-reply">Cancel reply</button>
-    </div>
-    <input type="hidden" name="parentId" value="">
-
-    <label class="comment-field">
-      <span>Name</span>
-      <input type="text" name="name" maxlength="60" autocomplete="name" required>
-    </label>
-
-    <label class="comment-anonymous-option">
-      <input type="checkbox" name="anonymous">
-      <span>Post anonymously</span>
-    </label>
-
-    <label class="comment-field">
-      <span>Comment</span>
-      <textarea name="body" rows="5" maxlength="2000" required></textarea>
-    </label>
-
-    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
-    <button type="submit" class="comment-submit">Post comment</button>
-    <p class="comment-form-status" role="status" aria-live="polite"></p>
-  </form>
-
-  <p class="comments-loading" role="status">Loading comments...</p>
-  <div class="comment-list" aria-live="polite"></div>
-</section>
+        <iframe class="comment-frame" data-post-slug="2026-08-28-evil-rope" src="https://blogtony-comments.tonykevinjr.workers.dev/widget?post=2026-08-28-evil-rope" title="Comments for this post" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
 
       </details>
     </article>
@@ -485,39 +398,7 @@
       </div>
       <details class="feed-comments">
         <summary>Comments (<span class="feed-comment-count" aria-label="loading comment count">…</span>)</summary>
-        <section class="comment-section" data-comments-api="https://blogtony-comments.tonykevinjr.workers.dev" data-post-slug="2026-08-27-has-this-ever-happened-to-you">
-  <h2>Comments</h2>
-
-  <form class="comment-form">
-    <div class="comment-reply-context" hidden>
-      Replying to <strong class="comment-reply-name"></strong>
-      <button type="button" class="comment-cancel-reply">Cancel reply</button>
-    </div>
-    <input type="hidden" name="parentId" value="">
-
-    <label class="comment-field">
-      <span>Name</span>
-      <input type="text" name="name" maxlength="60" autocomplete="name" required>
-    </label>
-
-    <label class="comment-anonymous-option">
-      <input type="checkbox" name="anonymous">
-      <span>Post anonymously</span>
-    </label>
-
-    <label class="comment-field">
-      <span>Comment</span>
-      <textarea name="body" rows="5" maxlength="2000" required></textarea>
-    </label>
-
-    <div class="comment-turnstile" data-production-sitekey="0x4AAAAAAEiHinJ-42EWx7S3" data-development-sitekey="1x00000000000000000000AA"></div>
-    <button type="submit" class="comment-submit">Post comment</button>
-    <p class="comment-form-status" role="status" aria-live="polite"></p>
-  </form>
-
-  <p class="comments-loading" role="status">Loading comments...</p>
-  <div class="comment-list" aria-live="polite"></div>
-</section>
+        <iframe class="comment-frame" data-post-slug="2026-08-27-has-this-ever-happened-to-you" src="https://blogtony-comments.tonykevinjr.workers.dev/widget?post=2026-08-27-has-this-ever-happened-to-you" title="Comments for this post" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
 
       </details>
     </article>
