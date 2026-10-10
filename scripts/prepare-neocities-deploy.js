@@ -39,7 +39,7 @@ function copyDirectory(relativePath) {
   );
 }
 
-["index.html", "about.html", "music.html", "posts.html", "store.html", "theme.js"].forEach(copyFile);
+["index.html", "about.html", "music.html", "posts.html", "store.html", "theme.js", "sidebar.js"].forEach(copyFile);
 copyDirectory("posts");
 copyDirectory("images");
 copyDirectory("style");
